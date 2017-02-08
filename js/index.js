@@ -120,11 +120,18 @@ $(document).ready(function(){
             $('li').removeClass('up-arrow');
         }
         $('.get-more a').toggleClass('up-arrow');
-        $('.list-item div').eq(index).show().siblings('div').hide();
+        $('#list-item>div').eq(index).show().siblings('div').hide();
     });
     $('.list-item2 p').hover(function(){
         $(this).addClass('hover').siblings().removeClass('hover');
     },function(){
         $(this).removeClass('hover');
-    })
+    });
+    // $('.get-more').click(function(){
+    //     $("#ng-fix-bar").load("file:///E:/AppServ/www/getmore.html #wrapper");
+    // });
+    $('.close').click(function(){
+        $('.mt').hide();
+    });
 });
+
