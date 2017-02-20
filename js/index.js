@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
     //图片切换
     var length,
         currentIndex = 0,
@@ -241,12 +241,13 @@ $(document).ready(function() {
     //图书音像tab切换
     var $lia=$('.floor-head li>a'),
         $aspan=$('.floor-head span');
-    $('.floor-head li').hover(function(){
-        if($('li a').hasClass('booksa')){
-            $('li a').removeClass('booksa');
+    $('.get-more>li').hover(function(){
+        if($('li>a').hasClass('booksa')&& $('li>span').hasClass('aspan')){
+            $('li>a').removeClass('booksa');
+            $('li>span').removeClass('aspan');
         }
-        $(this).children('a').addClass('booksa').siblings().removeClass('booksa');
-        $(this).children('span').addClass('aspan').siblings().removeClass('aspan');
+        $(this).children('a').toggleClass('booksa');
+        $(this).children('span').addClass('aspan').siblings('span').removeClass('aspan');
     },function(){
         $(this).children('a').removeClass('booksa');
         $(this).children('span').removeClass('aspan');
