@@ -246,8 +246,8 @@ img{border: none;}
 .side .entrances li{float: left;width: 80px;margin-left: 10px;height: 50px;line-height: 50px;}
 .side .entrances li a{display: inline-block;width: 90px;color: #ff6600;}
 .side .entrances li em{font-style: normal;}
-.hot-word div{margin-left: 10px;}
-.hot-word div:first-child{margin-bottom: 15px;}
+.hot-word div{margin-left: 10px;float: left;}
+.hot-word div:first-child{margin-bottom: 15px;float: left;}
 .hot-word div a{display: inline-block;width: 85px;font-size: 12px;line-height: 25px;color: #666;}
 .hot-word div a:hover{color: #ff6600;}
 #list-item{width: 1015px;height: 440px;position: absolute;left: 185px;top: 0}
