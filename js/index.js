@@ -129,6 +129,10 @@ $(function() {
         $fw.removeClass('fw');
         $khjt.removeClass('jtxz');
     });
+    //热门搜索hover
+    $('.search-list>a').hover(function(){
+        $(this).toggleClass('ahh');
+    });
  //放心去喜欢
     $('.featrue-list li').hover(function() {
         $(this).addClass('hoItem').siblings().removeClass('hoItem');
