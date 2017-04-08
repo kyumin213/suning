@@ -24,10 +24,25 @@ $(function() {
     $('.slider-next').on('click', function() {
         next();
     });
+    $('.slider-nav >li').hover(function(){
+        stop();
+        var index=$(this).index();
+        currentIndex=index;
+        $('.slider-main li').eq(currentIndex).fadeIn(1000).siblings().fadeOut(500);
+        $('.slider-item').eq(currentIndex).addClass('slider-item-selected').siblings().removeClass('slider-item-selected');
+    },function(){
+        start();
+    });
 
     function next() {
         var preIndex = currentIndex;
         currentIndex = ++currentIndex % length;
+        play(preIndex, currentIndex);
+    }
+
+    function pre() {
+        var preIndex = currentIndex;
+        currentIndex = --currentIndex % length;
         play(preIndex, currentIndex);
     }
 
@@ -51,9 +66,9 @@ $(function() {
     }
     start();
     //网站导航鼠标悬浮
-     var $jt=$('.bg-bar-box .jt'),
-         $dh=$('.dh'),
-         $ng=$('.ng-site-nav');
+    var $jt = $('.bg-bar-box .jt'),
+        $dh = $('.dh'),
+        $ng = $('.ng-site-nav');
     $('.bg-bar-box').hover(function() {
         $dh.addClass('hdh');
         $jt.addClass('jtxz');
@@ -64,9 +79,9 @@ $(function() {
         $ng.removeClass('hng');
     });
     //商家入驻鼠标悬浮
-    var $sjjt=$('.bg-node-box .jt'),
-        $rz=$('.rz'),
-        $ngnd=$('.ng-node-nav');
+    var $sjjt = $('.bg-node-box .jt'),
+        $rz = $('.rz'),
+        $ngnd = $('.ng-node-nav');
     $('.bg-node-box').hover(function() {
         $rz.addClass('hrz');
         $ngnd.addClass('hnode');
@@ -77,8 +92,8 @@ $(function() {
         $sjjt.removeClass('jtxz');
     });
     //我的订单鼠标悬浮
-    var $otem=$('.od-item'),
-        $djt=$('.ng-order .jt');
+    var $otem = $('.od-item'),
+        $djt = $('.ng-order .jt');
     $('.ng-order').hover(function() {
         $(this).addClass('hng-od');
         $otem.addClass('hitem');
@@ -89,51 +104,51 @@ $(function() {
         $djt.removeClass("jtxz");
     });
     //我的易购
-    var $myg=$('.my-yg .jt'),
-        $ygit=$('.yg-item'),
-        $ygh=$('.my-yg .yg');
-    $('.my-yg').hover(function(){
+    var $myg = $('.my-yg .jt'),
+        $ygit = $('.yg-item'),
+        $ygh = $('.my-yg .yg');
+    $('.my-yg').hover(function() {
         $myg.addClass("jtxz");
         $ygh.addClass('ygh');
         $ygit.addClass('hyg-item');
-    },function(){
+    }, function() {
         $myg.removeClass("jtxz");
         $ygh.removeClass('ygh');
         $ygit.removeClass('hyg-item');
     });
 
     //手机苏宁
-    var $nvsj=$('.nv-sj'),
-        $sjitem=$('.sj-sn-item'),
-        $sjt=$('.sj-sn .jt');
-    $('.sj-sn').hover(function(){
+    var $nvsj = $('.nv-sj'),
+        $sjitem = $('.sj-sn-item'),
+        $sjt = $('.sj-sn .jt');
+    $('.sj-sn').hover(function() {
         $nvsj.addClass('hnv-sj');
         $sjitem.addClass('hitem');
         $sjt.addClass('jtxz');
-    },function(){
+    }, function() {
         $nvsj.removeClass('hnv-sj');
         $sjitem.removeClass('hitem');
         $sjt.removeClass('jtxz');
     });
     //客户服务
-    var $kh=$('.hu-fw-list'),
-        $fw=$('.khfw'),
-        $khjt=$('.kh-fw .jt');
+    var $kh = $('.hu-fw-list'),
+        $fw = $('.khfw'),
+        $khjt = $('.kh-fw .jt');
 
-    $('.kh-fw').hover(function(){
+    $('.kh-fw').hover(function() {
         $kh.addClass('hlist');
         $fw.addClass('fw');
         $khjt.addClass('jtxz');
-    },function(){
+    }, function() {
         $kh.removeClass('hlist');
         $fw.removeClass('fw');
         $khjt.removeClass('jtxz');
     });
     //热门搜索hover
-    $('.search-list>a').hover(function(){
+    $('.search-list>a').hover(function() {
         $(this).toggleClass('ahh');
     });
- //放心去喜欢
+    //放心去喜欢
     $('.featrue-list li').hover(function() {
         $(this).addClass('hoItem').siblings().removeClass('hoItem');
     }, function() {
@@ -176,7 +191,7 @@ $(function() {
     $('.get-more li').hover(function() {
         var index = $(this).index();
         $('#list-item>div').eq(index).show().siblings('div').hide();
-    },function(){
+    }, function() {
         $('span').removeClass('up-arrow');
     });
     $('.list-item2 p').hover(function() {
@@ -185,7 +200,7 @@ $(function() {
         $(this).removeClass('hover');
     });
     //更多推荐
-    $('.get-more').click(function(){
+    $('.get-more').click(function() {
         $("#ng-fix-bar").load("getmore.html #wrapper");
     });
     // 关闭视口
@@ -204,7 +219,7 @@ $(function() {
         var len = $v_show.find('li').length;
         var page_count = Math.ceil(len / i);
         if (!$ul.is(':animated')) {
-            if (page ==page_count) {
+            if (page == page_count) {
                 $ul.animate({
                     left: "0px"
                 }, "slow");
@@ -241,10 +256,10 @@ $(function() {
         }
     });
     //图书音像tab切换
-    var $lia=$('.floor-head li>a'),
-        $aspan=$('.floor-head span');
-    $('.get-more>li').hover(function(){
-        if($('li>a').hasClass('booksa')&& $('li>span').hasClass('aspan')){
+    var $lia = $('.floor-head li>a'),
+        $aspan = $('.floor-head span');
+    $('.get-more>li').hover(function() {
+        if ($('li>a').hasClass('booksa') && $('li>span').hasClass('aspan')) {
             $('li>a').removeClass('booksa');
             $('li>span').removeClass('aspan');
         }
@@ -252,30 +267,32 @@ $(function() {
         $(this).children('span').addClass('aspan').siblings('span').removeClass('aspan');
     });
     //左侧菜单
-    $('.left-item li').hover(function(){
-        var index=$(this).index();
+    $('.left-item li').hover(function() {
+        var index = $(this).index();
         $(this).addClass("reds").siblings().removeClass('reds');
+        $('#right-item').css("display", "block");
         $('#right-item>ul').eq(index).show().siblings().hide();
-    },function(){
+    }, function() {
         $(this).removeClass('reds');
-        $('#right-item>ul').css("display","none");
+        $('#right-item>ul').css("display", "none");
+        $('#right-item').css("display", "none");
     });
-// 返回顶部
-//     var back=$('#ng-fix-bar');
-//     back.click(function(){
-//         $('html,body').animate({scrollTop:0},800);
-//         if($('body').scrollTop()){
-//             $('body').animate({scrollTop:0},800);
-//         }
-//     });
-//     //监听window的scroll事件
-//     $(window).on('scroll',function(){
-//         if($(window).scrollTop()>$(window).height()){
-//             back.fadeIn();
-//         }else{
-//             back.fadeOut();
-//         }
-//     });
-//     $(window).trigger('scroll');
+    // 返回顶部
+    //     var back=$('#ng-fix-bar');
+    //     back.click(function(){
+    //         $('html,body').animate({scrollTop:0},800);
+    //         if($('body').scrollTop()){
+    //             $('body').animate({scrollTop:0},800);
+    //         }
+    //     });
+    //     //监听window的scroll事件
+    //     $(window).on('scroll',function(){
+    //         if($(window).scrollTop()>$(window).height()){
+    //             back.fadeIn();
+    //         }else{
+    //             back.fadeOut();
+    //         }
+    //     });
+    //     $(window).trigger('scroll');
 
 });
