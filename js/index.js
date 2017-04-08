@@ -155,9 +155,7 @@ $(function() {
         if ($('li').hasClass('hover')) {
             $('li').removeClass('hover');
         }
-
         $(this).toggleClass('hover');
-
         $('#head-tab div').eq(index).show().siblings('div').hide();
     });
     //必抢清单tab选项
@@ -252,10 +250,7 @@ $(function() {
         }
         $(this).children('a').toggleClass('booksa');
         $(this).children('span').addClass('aspan').siblings('span').removeClass('aspan');
-    },function(){
-        $(this).children('a').removeClass('booksa');
-        $(this).children('span').removeClass('aspan');
-    })
+    });
     //左侧菜单
     $('.left-item li').hover(function(){
         var index=$(this).index();
