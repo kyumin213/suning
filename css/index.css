@@ -12,9 +12,9 @@ img{border: none;}
 .web{width: 1200px;}
 .mt{position: fixed;top: 0;left:0;width: 100%;height: 100%;background: rgba(0,0,0,0.3);z-index: 1000;}
 .mt .box-title{position: fixed;left:50%;top: 50%;z-index: 1001;position: relative;margin-left: -210px;margin-top: -290px;}
-.mt .close{display: block;position: absolute;top: 0;left: 385px;width: 35px;height: 35px;z-index: 1002;background: #000}
+.mt .close{display: block;position: absolute;top: 0;left: 385px;width: 35px;height: 35px;z-index: 1002;background: #000;cursor: pointer;}
 .mt .close b{display:inline-block;width:35px; height:1px; background:#fff; font-size:0;vertical-align:middle;-webkit-transform: rotate(45deg);margin-top: 12px;}
-.mt .close b:after { content:'.'; display:block; width:35px; height:1px; background:#fff;-webkit-transform: rotate(-90deg);}
+.mt .close b::after { content:'.'; display:block; width:35px; height:1px; background:#fff;-webkit-transform: rotate(-90deg);}
 .top-box{width: 100%; height: 40px; background: #f5f5f5; position: relative; font-size: 13px; }
 .left{float: left; }
 .bg-bar-box{font-size: 14px; position: absolute;z-index: 99;width: 79px;height: 40px;}
